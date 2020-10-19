@@ -1,4 +1,7 @@
+drop database IF exists Rick_and_Morty_Shopping_DB;
+
 CREATE DATABASE Rick_and_Morty_Shopping_DB;
+
 USE Rick_and_Morty_Shopping_DB;
 CREATE TABLE CLIENTE(
 	CLI_PK_ID_CLIENTE INT AUTO_INCREMENT PRIMARY KEY,
