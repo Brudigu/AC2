@@ -2,6 +2,7 @@ package conexoes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MySQL {
@@ -11,7 +12,7 @@ public class MySQL {
     private String servidor = "localhost:3306";
     private String nomeDoBanco = "banco_morick";
     private String usuario = "root";
-    private String senha = "@gowB12345";
+    private String senha = "root";
     
     public MySQL(){
         
@@ -44,7 +45,7 @@ public class MySQL {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + servidor + "/" + nomeDoBanco, usuario, senha);
             if(conn != null) System.out.println("Conexão efetuada com sucesso!" + "ID: " + conn);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Conexão não realizada - ERRO: " + e.getMessage());
         }
     }
