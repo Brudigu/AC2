@@ -5,6 +5,8 @@
  */
 package rick_and_morty_shopping;
 
+import Conexoes.ConexaoMySql;
+
 /**
  *
  * @author Win10
@@ -15,7 +17,7 @@ public class Rick_and_Morty_Shopping {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ConexaoMySql Conexao = new ConexaoMySql();
     }
     
 }
