@@ -13,11 +13,11 @@ import Conexoes.ConexaoMySql;
  */
 public class Rick_and_Morty_Shopping {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        
         ConexaoMySql Conexao = new ConexaoMySql();
+        Conexao.conectar();
+        
     }
     
 }

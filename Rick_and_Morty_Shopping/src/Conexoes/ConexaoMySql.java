@@ -32,7 +32,7 @@ public class ConexaoMySql {
         this.servidor = "localhost";
         this.nomeDoBanco = "Rick_and_Morty_Shopping_DB";
         this.usuario = "root";
-        this.senha = "root";
+        this.senha = "root1";
     }
 
     /**

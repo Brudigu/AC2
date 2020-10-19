@@ -6,10 +6,7 @@ import conexoes.ConexaoMySql;
 import java.util.ArrayList;
 import model.ModelProdutos;
 
-/**
- *
- * @author Aula
- */
+
 public class DaoProdutos extends ConexaoMySql {
 
     /**
