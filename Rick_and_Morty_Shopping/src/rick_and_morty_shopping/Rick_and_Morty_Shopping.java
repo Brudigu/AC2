@@ -6,6 +6,8 @@
 package rick_and_morty_shopping;
 
 import Conexoes.ConexaoMySql;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,10 +15,15 @@ import Conexoes.ConexaoMySql;
  */
 public class Rick_and_Morty_Shopping {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
         ConexaoMySql Conexao = new ConexaoMySql();
         Conexao.conectar();
+        
+        Connection coisa = Conexao.getCon();
+        
+        System.out.println(coisa);
+        
         
     }
     

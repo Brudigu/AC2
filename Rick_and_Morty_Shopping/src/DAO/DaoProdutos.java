@@ -2,7 +2,7 @@
 package DAO;
 
 
-import conexoes.ConexaoMySql;
+import Conexoes.ConexaoMySql;
 import java.util.ArrayList;
 import model.ModelProdutos;
 

@@ -1,12 +1,16 @@
 
 package Conexoes;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+
+
+
 
 /**
  *
@@ -22,7 +26,7 @@ public class ConexaoMySql {
 
 
     private String servidor = "localhost:3306";
-    private String nomeDoBanco = "rick_and_morty_shopping_db";
+    private String nomeDoBanco = "Rick_and_Morty_Shopping_DB?useTimezone=true&serverTimezone=UTC" ;
     private String usuario = "root";
     private String senha = "root123";
     
@@ -40,14 +44,14 @@ public class ConexaoMySql {
      * @return Connection
      */
   
-    public Connection conectar(){
+    public Connection conectar() throws SQLException{
         try {
-            //Driver do PostgreSQL
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-
+            //Driver do MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            
             //local do banco, nome do banco, usuario e senha
             String url = "jdbc:mysql://" + servidor + "/" + nomeDoBanco;
-            this.setCon((Connection) DriverManager.getConnection(url, usuario, senha));
+            this.setCon(DriverManager.getConnection(url, usuario, senha));
 
             //se ocorrer tudo bem, ou seja, se conectar a linha a segui é executada
             this.status = true;
@@ -67,7 +71,7 @@ public class ConexaoMySql {
     public boolean executarSQL(String MySQL){
         try {
             //createStatement de con para criar o Statement
-            this.setStatement(getCon().createStatement());
+            this.setStatement((Statement) getCon().createStatement());
 
             // Definido o Statement, executamos a query no banco de dados
             this.setResultSet(getStatement().executeQuery(MySQL));
@@ -83,7 +87,7 @@ public class ConexaoMySql {
         try {
             
             //createStatement de con para criar o Statement
-            this.setStatement(getCon().createStatement());
+            this.setStatement((Statement) getCon().createStatement());
 
             // Definido o Statement, executamos a query no banco de dados
             getStatement().executeUpdate(pSQL);
@@ -104,7 +108,7 @@ public class ConexaoMySql {
         int status = 0;
         try {
             //createStatement de con para criar o Statement
-            this.setStatement(getCon().createStatement());
+            this.setStatement((Statement) getCon().createStatement());
 
             // Definido o Statement, executamos a query no banco de dados
             this.getStatement().executeUpdate(pSQL);
