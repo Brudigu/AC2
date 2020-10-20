@@ -17,31 +17,32 @@ public class ConexaoMySql {
     private boolean status = false;
     private String mensagem = "";   //variavel que vai informar o status da conexao
     private Connection con = null;  //variavel para conexao
-    private Statement statement;
+    private Statement statement; //varaivel de manipulação do SQL
     private ResultSet resultSet;
 
 
-    private String servidor = "localhost";
-    private String nomeDoBanco = "Rick_and_Morty_Shopping_DB";
+    private String servidor = "localhost:3306";
+    private String nomeDoBanco = "rick_and_morty_shopping_db";
     private String usuario = "root";
-    private String senha = "root";
+    private String senha = "root123";
     
     public ConexaoMySql(){}
     
     public ConexaoMySql(String pServidor, String pNomeDoBanco, String pUsuario, String pSenha){
-        this.servidor = "localhost";
-        this.nomeDoBanco = "Rick_and_Morty_Shopping_DB";
-        this.usuario = "root";
-        this.senha = "root1";
+        this.servidor = pServidor;
+        this.nomeDoBanco = pNomeDoBanco;
+        this.usuario = pUsuario;
+        this.senha = pSenha;
     }
 
     /**
      * Abre uma conexao com o banco
      * @return Connection
      */
+  
     public Connection conectar(){
         try {
-            //Driver do SQL
+            //Driver do PostgreSQL
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
             //local do banco, nome do banco, usuario e senha
@@ -57,18 +58,19 @@ public class ConexaoMySql {
         return this.getCon();
     }
 
+
     /**
      * Executa consultas SQL
-     * @param pSQL
+     * @param MySQL
      * @return int
      */
-    public boolean executarSQL(String pSQL){
+    public boolean executarSQL(String MySQL){
         try {
             //createStatement de con para criar o Statement
             this.setStatement(getCon().createStatement());
 
             // Definido o Statement, executamos a query no banco de dados
-            this.setResultSet(getStatement().executeQuery(pSQL));
+            this.setResultSet(getStatement().executeQuery(MySQL));
             
         } catch (SQLException ex) {
             ex.printStackTrace();
