@@ -18,7 +18,7 @@ public class MySQL {
     
     public MySQL(){
         
-    }
+}
     
     MySQL(String servidor, String nomeDoBanco, String usuario, String senha){
         this.servidor = servidor;

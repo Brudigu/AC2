@@ -7,6 +7,7 @@ package Views;
 
 import conexoes.MySQL;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import objetos.ClienteDados;
 
 /**
@@ -99,7 +100,7 @@ public class Cliente extends javax.swing.JFrame {
         boxUF = new javax.swing.JComboBox<>();
         txtEmail = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
@@ -179,8 +180,8 @@ public class Cliente extends javax.swing.JFrame {
         txtEmail.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtEmail.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -196,21 +197,31 @@ public class Cliente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(10);
+        jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setMinWidth(50);
+            table.getColumnModel().getColumn(0).setPreferredWidth(50);
+            table.getColumnModel().getColumn(0).setMaxWidth(50);
+            table.getColumnModel().getColumn(3).setPreferredWidth(10);
         }
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cancelar.png"))); // NOI18N
-        jButton1.setText("Cancelar");
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/novo.png"))); // NOI18N
         jButton2.setText("Novo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salvar.png"))); // NOI18N
@@ -232,6 +243,11 @@ public class Cliente extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/excluir.png"))); // NOI18N
         jButton5.setText("Excluir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         try {
             txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -402,6 +418,56 @@ public class Cliente extends javax.swing.JFrame {
         cadastraCliente();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!!");
+        
+        //fazer cadastro salvo aparecer na tabela
+        
+        int codigo = 0;
+        String nome = txtNome.getText();
+        String cel  = txtCel.getText();
+        String cep = txtCEP.getText();
+        String email = txtEmail.getText();
+        
+        DefaultTableModel tabelacliente = (DefaultTableModel) table.getModel();
+        
+        Object [] novocliente = new Object[]{
+            codigo,
+            nome,
+            cep,
+            cel,
+            email
+        };
+        for (int i = 0; i < 1; i++) {
+            codigo++;
+        }
+        tabelacliente.addRow(novocliente);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int linhaselecionada = table.getSelectedRow();
+            if (linhaselecionada == -1){
+                JOptionPane.showMessageDialog(this, "Por favor, selecione uma linha.");
+            }else{
+                DefaultTableModel tabelacliente = (DefaultTableModel) table.getModel();
+                tabelacliente.removeRow(linhaselecionada);
+                JOptionPane.showMessageDialog(this, "Cliente excluído!!!");
+            }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //limpar campos        
+        txtNome.setText(" ");
+        txtCel.setText(" ");
+        txtCEP.setText(" ");
+        txtEmail.setText(" ");
+        txtEndereco.setText(" ");
+        txtBairro.setText(" ");
+        txtCidade.setText(" ");
+        txtCPF.setText(" ");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -457,8 +523,8 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable table;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCPF;
