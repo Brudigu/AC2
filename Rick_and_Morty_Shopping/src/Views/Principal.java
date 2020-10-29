@@ -266,7 +266,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new PDV().setVisible(true);
+        new Pagamento().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -290,7 +290,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataAncestorAdded
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new Pagamento().setVisible(true);
+        new PDV().setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

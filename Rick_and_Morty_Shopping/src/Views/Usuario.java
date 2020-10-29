@@ -248,13 +248,13 @@ public class Usuario extends javax.swing.JFrame {
             }else{
                 DefaultTableModel tabelacliente = (DefaultTableModel) table.getModel();
                 tabelacliente.removeRow(linhaselecionada);
-                JOptionPane.showMessageDialog(this, "Cliente excluído!!!");
+                JOptionPane.showMessageDialog(this, "Usuário excluído!!!");
             }
             
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!!");
+        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!!");
         
         //fazer cadastro salvo aparecer na tabela
         String nome = txtNome.getText();

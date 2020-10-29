@@ -415,7 +415,7 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        cadastraCliente();
+        dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -459,7 +459,7 @@ public class Cliente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //limpar campos        
         txtNome.setText(" ");
-        txtCel.setText(" ");
+        txtCel.setText("  ");
         txtCEP.setText(" ");
         txtEmail.setText(" ");
         txtEndereco.setText(" ");
