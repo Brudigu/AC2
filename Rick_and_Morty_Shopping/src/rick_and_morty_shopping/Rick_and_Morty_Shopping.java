@@ -22,7 +22,7 @@ public class Rick_and_Morty_Shopping {
         
         Connection coisa = Conexao.getCon();
         
-        System.out.println(coisa);
+        System.out.println("coisa");
         
         
     }
