@@ -45,6 +45,6 @@ Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banc
   * Controle de estoque;
   * Cadastro de novos usuários para acessar o sistema;
   * Botão de alterar os dados.
-* Botão de limpar (CEP e CEL);
+* Botão de limpar (CPF, CEP, CEL);
 * Atributo Gênero;
 * Melhorar o README.md.
