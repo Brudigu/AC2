@@ -42,7 +42,7 @@ Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banc
 * Inserção com banco de dados;
   * Cadastro de produto;
   * Cadastro de cliente;
-  * Controle e estoque;
+  * Controle de estoque;
   * Cadastro de novos usuários para acessar o sistema;
   * Botão de alterar os dados.
 * Botão de limpar (CEP e CEL);
