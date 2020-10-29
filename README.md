@@ -1,6 +1,7 @@
 # **AC2 - PROJETO MORICK**
 ## **1.  Sobre o Projeto**
-Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banco de Dados. O projeto Morick consiste na criação de uma loja fictícia envolvendo cadastro de usuários e produtos, dentro do universo interdimensional de Rick and Morty. Utilizamos a linguagem Java Orientada a Objetos junto da linguagem SQL para criação do banco de dados, com interfaces gráficas (JFrames).
+Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banco de Dados. O projeto Morick consiste na criação de uma loja fictícia envolvendo cadastro de usuários e produtos, dentro do universo interdimensional de Rick and Morty. Utilizamos a linguagem Java Orientada a Objetos junto da linguagem SQL para criação do banco de dados, com interfaces gráficas (JFrames). <br />
+![logo](https://github.com/Brudigu/AC2/blob/banco-de-dados/Imagens/Morick.png?raw=true)
 ## **2.  Sobre a Equipe**
 *  Gustavo Binder;
 *  Vitor Palazzo;
