@@ -6,14 +6,15 @@
 package Views;
 
 import javax.swing.JFrame;
+import java.util.Date; 
 
 /**
  *
  * @author Win10
  */
 public class Principal extends javax.swing.JFrame {
-
-    /**
+    Date dataHora = new Date();
+     /*
      * Creates new form Principal
      */
     public Principal() {
@@ -31,17 +32,18 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         uJPanelImagem2 = new componentes.UJPanelImagem();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        txtData = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -55,7 +57,6 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vendas RM - Shopping Rick and Morty");
-        setPreferredSize(new java.awt.Dimension(1021, 641));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 641));
 
@@ -63,19 +64,20 @@ public class Principal extends javax.swing.JFrame {
         uJPanelImagem2.setPreferredSize(new java.awt.Dimension(1021, 608));
         uJPanelImagem2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("usuário");
+        jLabel4.setToolTipText("");
+        uJPanelImagem2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Logado como:");
+        uJPanelImagem2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, -1));
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
         uJPanelImagem2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, -1, -1));
-
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/clientes.png"))); // NOI18N
-        jButton1.setText("Clientes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        uJPanelImagem2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 175, 55));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuarioicon.png"))); // NOI18N
@@ -85,7 +87,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        uJPanelImagem2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 175, 55));
+        uJPanelImagem2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 175, 55));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/produtos.png"))); // NOI18N
@@ -95,7 +97,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        uJPanelImagem2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 175, 55));
+        uJPanelImagem2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 175, 55));
 
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/venda.png"))); // NOI18N
@@ -105,44 +107,61 @@ public class Principal extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        uJPanelImagem2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 175, 55));
+        uJPanelImagem2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 175, 55));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 0));
         jLabel1.setText("MENU");
-        uJPanelImagem2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+        uJPanelImagem2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/atalho.png"))); // NOI18N
-        jButton5.setText("PDV");
+        jButton5.setText("Pagamento");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        uJPanelImagem2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 175, 55));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Logado como:");
-        uJPanelImagem2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("usuário");
-        jLabel4.setToolTipText("");
-        uJPanelImagem2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, -1, -1));
+        uJPanelImagem2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 180, 55));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Data e hora de Login:");
         jLabel5.setToolTipText("");
-        uJPanelImagem2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, -1, -1));
+        uJPanelImagem2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 610, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("data");
-        uJPanelImagem2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 610, -1, -1));
+        txtData.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txtData.setForeground(new java.awt.Color(255, 255, 255));
+        txtData.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                txtDataAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        uJPanelImagem2.add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 610, 260, 20));
+
+        jButton6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/clientes.png"))); // NOI18N
+        jButton6.setText("Clientes");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        uJPanelImagem2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 175, 55));
+
+        jButton7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/atalho.png"))); // NOI18N
+        jButton7.setText("PDV");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        uJPanelImagem2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 175, 55));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/principal.jpg"))); // NOI18N
         uJPanelImagem2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, -1, 710));
@@ -262,9 +281,17 @@ public class Principal extends javax.swing.JFrame {
         new Usuario().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         new Cliente().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void txtDataAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtDataAncestorAdded
+        txtData.setText(dataHora.toString());
+    }//GEN-LAST:event_txtDataAncestorAdded
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        new Pagamento().setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,17 +329,17 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -323,6 +350,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JLabel txtData;
     private componentes.UJPanelImagem uJPanelImagem2;
     // End of variables declaration//GEN-END:variables
 }

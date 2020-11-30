@@ -1,27 +1,127 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Views;
 
-/**
- *
- * @author Win10
- */
-public class Vendas extends javax.swing.JFrame {
+import conexoes.MySQL;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import objetos.ClienteDados;
 
-    /** Creates new form Vendas */
+public class Vendas extends javax.swing.JFrame {
+  
+    MySQL conectar = new MySQL();
+    ClienteDados novoCliente = new ClienteDados();
+    
+    private void buscarCliente(){
+        this.conectar.conectaBanco();
+        
+        String consultaCpf = this.consultaCpf.getText();
+                
+        try {
+            this.conectar.executarSQL(
+                   "SELECT "
+                    + "id,"       
+                    + "nome,"                    
+                    + "estado,"
+                    + "cep,"
+                    + "celular"
+                 + " FROM"
+                     + " cadastroclientes"
+                 + " WHERE"
+                     + " cpf = '  "  + consultaCpf + "'"
+                + ";"
+            );
+            DefaultTableModel tabelaCliente = (DefaultTableModel) tabelacliente.getModel();
+            tabelaCliente.setNumRows(0);
+            while(this.conectar.getResultSet().next()){
+             novoCliente.setId(this.conectar.getResultSet().getInt(1));
+             novoCliente.setNome(this.conectar.getResultSet().getString(2));
+             novoCliente.setEstado(this.conectar.getResultSet().getString(3));
+             novoCliente.setCep(this.conectar.getResultSet().getString(4));
+             novoCliente.setCel(this.conectar.getResultSet().getString(5));
+              
+            tabelaCliente.addRow(new Object[]{
+            novoCliente.getId(),
+            novoCliente.getNome(),
+            novoCliente.getEstado(),
+            novoCliente.getCep(),
+            novoCliente.getCel()                        
+        });
+              
+           }
+           if(novoCliente.getNome() == ""){
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
+           }
+           
+        } catch (Exception e) {            
+            System.out.println("Erro ao consultar cliente " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");
+            
+        }finally{
+            
+            this.conectar.fechaBanco();   
+        }               
+    }
+     
+    private void limparCamposBusca(){
+         DefaultTableModel tabelaCliente = (DefaultTableModel) tabelacliente.getModel();
+        tabelaCliente.setRowCount(0);
+
+    }
+    
+    private void deletarCliente(){
+        this.conectar.conectaBanco();
+        
+        String consultaCpf = this.consultaCpf.getText(); 
+        
+        try {            
+            this.conectar.updateSQL(
+                "DELETE FROM cadastroclientes "
+                + " WHERE "
+                    + "cpf = '" + consultaCpf + "'"
+                + ";"            
+            );
+            
+        } catch (Exception e) {
+            System.out.println("Erro ao deletar cliente " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao deletar cliente");
+        }finally{
+            this.conectar.fechaBanco();
+            limparCamposBusca();
+            JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso");            
+        }     
+        
+    }
+    
+    public void atualizarCliente(){
+        this.conectar.conectaBanco();
+        
+        String consultaCpf = this.consultaCpf.getText();
+        DefaultTableModel tabelaCliente = (DefaultTableModel) tabelacliente.getModel();
+        try {
+            this.conectar.updateSQL(
+                "UPDATE cadastroclientes SET "                    
+                    + "nome = '" + tabelacliente.getValueAt(tabelacliente.getSelectedRow(), 1).toString() + "',"
+                    + "estado = '" + tabelacliente.getValueAt(tabelacliente.getSelectedRow(), 2).toString() + "',"                   
+                    + "cep = '" +  tabelacliente.getValueAt(tabelacliente.getSelectedRow(), 3).toString()+ "',"
+                    + "celular = '" +  tabelacliente.getValueAt(tabelacliente.getSelectedRow(), 4).toString()+ "'"
+                + " WHERE "
+                    + "cpf = '" + consultaCpf + "'"
+                + ";"
+            );
+        }catch(Exception e){
+            System.out.println("Erro ao atualizar cliente " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cliente");
+        }finally{
+            this.conectar.fechaBanco();
+            limparCamposBusca();
+            JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso");
+        }
+    }
+           
+    
     public Vendas() {
         initComponents();
     }
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,16 +152,16 @@ public class Vendas extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        consultaCpf = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabelacliente = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
         jTextField3.setText("jTextField3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Código Cli.");
@@ -260,42 +360,55 @@ public class Vendas extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Pesquisa:");
 
+        consultaCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaCpfActionPerformed(evt);
+            }
+        });
+
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pesquisar.png"))); // NOI18N
         jButton5.setText("Buscar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelacliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Nome do Cliente", "Data"
+                "Código", "Nome do Cliente", "Estado", "cep", "Celular"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setMinWidth(100);
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(100);
-            jTable2.getColumnModel().getColumn(0).setMaxWidth(100);
-            jTable2.getColumnModel().getColumn(2).setMinWidth(150);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(150);
-            jTable2.getColumnModel().getColumn(2).setMaxWidth(150);
+        ));
+        jScrollPane2.setViewportView(tabelacliente);
+        if (tabelacliente.getColumnModel().getColumnCount() > 0) {
+            tabelacliente.getColumnModel().getColumn(0).setMinWidth(100);
+            tabelacliente.getColumnModel().getColumn(0).setPreferredWidth(100);
+            tabelacliente.getColumnModel().getColumn(0).setMaxWidth(100);
+            tabelacliente.getColumnModel().getColumn(2).setMinWidth(150);
+            tabelacliente.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tabelacliente.getColumnModel().getColumn(2).setMaxWidth(150);
         }
 
         jButton6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/excluir.png"))); // NOI18N
         jButton6.setText("Excluir");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Editar.png"))); // NOI18N
         jButton7.setText("Alterar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -304,12 +417,11 @@ public class Vendas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                            .addComponent(consultaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                         .addComponent(jButton5))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,6 +429,10 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(98, 98, 98))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,10 +443,10 @@ public class Vendas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
+                        .addComponent(consultaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -355,6 +471,22 @@ public class Vendas extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void consultaCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultaCpfActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       buscarCliente();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       deletarCliente();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+      atualizarCliente();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,6 +524,7 @@ public class Vendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField consultaCpf;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -415,7 +548,6 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -423,7 +555,7 @@ public class Vendas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTable tabelacliente;
     // End of variables declaration//GEN-END:variables
 
 }

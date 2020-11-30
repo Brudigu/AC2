@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Felipe%20Lambiazzi/Documents/GitHub/AC2/Rick_and_Morty_Shopping/src/rick_and_morty_shopping/Rick_and_Morty_Shopping.java</file>
-            <file>file:/C:/Users/Felipe%20Lambiazzi/Documents/GitHub/AC2/Rick_and_Morty_Shopping/src/Conexoes/ConexaoMySql.java</file>
-            <file>file:/C:/Users/Felipe%20Lambiazzi/Documents/GitHub/AC2/Rick_and_Morty_Shopping/src/Views/Cliente.java</file>
-            <file>file:/C:/Users/Felipe%20Lambiazzi/Documents/GitHub/AC2/Rick_and_Morty_Shopping/src/Views/NewJFrame.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/catalago/rick/e/morty/CatalagoRickEMorty.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Vendas.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Produto.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Cliente.java</file>
         </group>
     </open-files>
 </project-private>
