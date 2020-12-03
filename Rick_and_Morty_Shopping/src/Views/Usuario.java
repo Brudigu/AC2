@@ -88,9 +88,9 @@ public class Usuario extends javax.swing.JFrame {
         
         try {            
             this.conectar.updateSQL(
-                "DELETE FROM cadastroprodutos "
+                "DELETE FROM usuario "
                 + " WHERE "
-                    + "produto_nome = '" + consultaNome + "'"
+                    + "usuario_nome = '" + consultaNome + "'"
                 + ";"            
             );
             
@@ -353,7 +353,7 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+      deletarUsuario();
             
     }//GEN-LAST:event_jButton5ActionPerformed
 

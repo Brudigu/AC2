@@ -66,7 +66,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("usuário");
+        jLabel4.setText("Vitor Palazzo");
         jLabel4.setToolTipText("");
         uJPanelImagem2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, -1, -1));
 
@@ -76,8 +76,8 @@ public class Principal extends javax.swing.JFrame {
         uJPanelImagem2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, -1, -1));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
-        uJPanelImagem2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Morick.png"))); // NOI18N
+        uJPanelImagem2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuarioicon.png"))); // NOI18N
