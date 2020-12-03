@@ -21,13 +21,5 @@ Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banc
 ## **4. Telas do projeto**
 ![telas](https://github.com/Brudigu/AC2/blob/main/Imagens/Webp.net-gifmaker.gif?raw=true)
 
-## **5. Melhorias para a apresentação final**
-* Inserção com banco de dados;
-  * Cadastro de produto;
-  * Cadastro de cliente;
-  * Controle de estoque;
-  * Cadastro de novos usuários para acessar o sistema;
-  * Botão de alterar os dados.
-* Botão de limpar (CPF, CEP, CEL);
-* Atributo Gênero;
-* Melhorar o README.md.
+## **5. Agradecimentos**
+Todos nós do projeto agradecemos aos professores Márcio e Ovídio, e a Facens no geral, pela oportunidade e espaço dado aos alunos para construir um sistema comercial.
