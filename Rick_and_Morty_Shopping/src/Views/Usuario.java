@@ -129,7 +129,10 @@ public class Usuario extends javax.swing.JFrame {
       
         
       }
-    
+    private void limparCamposBusca(){
+         DefaultTableModel tabelaCliente = (DefaultTableModel) tabelausuario.getModel();
+         tabelaCliente.setRowCount(0);
+          }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -346,7 +349,8 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //limpar campos        
+        //limpar campos 
+        limparCamposBusca();
         txtNome.setText(" ");
         txtSenha.setText(" ");
         txtLogin.setText(" ");

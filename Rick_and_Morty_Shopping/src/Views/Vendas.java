@@ -392,7 +392,7 @@ public class Vendas extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/excluir.png"))); // NOI18N
-        jButton6.setText("Excluir");
+        jButton6.setText("Limpar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
