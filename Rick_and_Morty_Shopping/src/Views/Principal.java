@@ -5,6 +5,7 @@
  */
 package Views;
 
+import catalago.rick.e.morty.catalago;
 import javax.swing.JFrame;
 import java.util.Date; 
 
@@ -39,7 +40,6 @@ public class Principal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
@@ -114,16 +114,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("MENU");
         uJPanelImagem2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/atalho.png"))); // NOI18N
-        jButton5.setText("Pagamento");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        uJPanelImagem2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 180, 55));
-
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Data e hora de Login:");
@@ -155,7 +145,7 @@ public class Principal extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/atalho.png"))); // NOI18N
-        jButton7.setText("PDV");
+        jButton7.setText("Catalago");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -265,10 +255,6 @@ public class Principal extends javax.swing.JFrame {
         new Vendas().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new PDV().setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         new Vendas().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -290,7 +276,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataAncestorAdded
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new Pagamento().setVisible(true);
+        new catalago().setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
@@ -332,7 +318,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

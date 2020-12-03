@@ -11,10 +11,8 @@ public class Vendas extends javax.swing.JFrame {
     ClienteDados novoCliente = new ClienteDados();
     
     private void buscarCliente(){
-        this.conectar.conectaBanco();
-        
-        String consultaCpf = this.consultaCpf.getText();
-                
+        this.conectar.conectaBanco();      
+        String consultaNome = this.consultaNome.getText();
         try {
             this.conectar.executarSQL(
                    "SELECT "
@@ -26,7 +24,7 @@ public class Vendas extends javax.swing.JFrame {
                  + " FROM"
                      + " cadastroclientes"
                  + " WHERE"
-                     + " cpf = '  "  + consultaCpf + "'"
+                     + " nome = '"  + consultaNome + "'"
                 + ";"
             );
             DefaultTableModel tabelaCliente = (DefaultTableModel) tabelacliente.getModel();
@@ -47,9 +45,10 @@ public class Vendas extends javax.swing.JFrame {
         });
               
            }
-           if(novoCliente.getNome() == ""){
+             if("".equals(novoCliente.getNome())){
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
            }
+           
            
         } catch (Exception e) {            
             System.out.println("Erro ao consultar cliente " +  e.getMessage());
@@ -70,13 +69,13 @@ public class Vendas extends javax.swing.JFrame {
     private void deletarCliente(){
         this.conectar.conectaBanco();
         
-        String consultaCpf = this.consultaCpf.getText(); 
+        String consultaNome = this.consultaNome.getText(); 
         
         try {            
             this.conectar.updateSQL(
                 "DELETE FROM cadastroclientes "
                 + " WHERE "
-                    + "cpf = '" + consultaCpf + "'"
+                    + "nome = '" + consultaNome + "'"
                 + ";"            
             );
             
@@ -94,7 +93,7 @@ public class Vendas extends javax.swing.JFrame {
     public void atualizarCliente(){
         this.conectar.conectaBanco();
         
-        String consultaCpf = this.consultaCpf.getText();
+        String consultaNome = this.consultaNome.getText();
         DefaultTableModel tabelaCliente = (DefaultTableModel) tabelacliente.getModel();
         try {
             this.conectar.updateSQL(
@@ -104,7 +103,7 @@ public class Vendas extends javax.swing.JFrame {
                     + "cep = '" +  tabelacliente.getValueAt(tabelacliente.getSelectedRow(), 3).toString()+ "',"
                     + "celular = '" +  tabelacliente.getValueAt(tabelacliente.getSelectedRow(), 4).toString()+ "'"
                 + " WHERE "
-                    + "cpf = '" + consultaCpf + "'"
+                    + "nome = '" + consultaNome + "'"
                 + ";"
             );
         }catch(Exception e){
@@ -117,7 +116,6 @@ public class Vendas extends javax.swing.JFrame {
         }
     }
            
-    
     public Vendas() {
         initComponents();
     }
@@ -152,7 +150,7 @@ public class Vendas extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        consultaCpf = new javax.swing.JTextField();
+        consultaNome = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelacliente = new javax.swing.JTable();
@@ -360,9 +358,9 @@ public class Vendas extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Pesquisa:");
 
-        consultaCpf.addActionListener(new java.awt.event.ActionListener() {
+        consultaNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultaCpfActionPerformed(evt);
+                consultaNomeActionPerformed(evt);
             }
         });
 
@@ -420,8 +418,8 @@ public class Vendas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(consultaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+                            .addComponent(consultaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addComponent(jButton5))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -429,10 +427,10 @@ public class Vendas extends javax.swing.JFrame {
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(98, 98, 98))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,10 +441,10 @@ public class Vendas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(consultaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
+                        .addComponent(consultaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -472,9 +470,9 @@ public class Vendas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void consultaCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaCpfActionPerformed
+    private void consultaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_consultaCpfActionPerformed
+    }//GEN-LAST:event_consultaNomeActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        buscarCliente();
@@ -524,7 +522,7 @@ public class Vendas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField consultaCpf;
+    private javax.swing.JTextField consultaNome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

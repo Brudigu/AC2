@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/catalago/rick/e/morty/CatalagoRickEMorty.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Principal.java</file>
             <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Vendas.java</file>
             <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Produto.java</file>
-            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/Views/Cliente.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/catalago/rick/e/morty/catalago.java</file>
+            <file>file:/C:/Users/Vitor/Documents/NetBeansProjects/Rick_and_Morty_Shopping/src/objetos/UsuarioDados.java</file>
         </group>
     </open-files>
 </project-private>
