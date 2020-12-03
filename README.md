@@ -10,7 +10,10 @@ Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banc
 *  Thiago Jano;
 *  Evelyn Rodrigues.
 
-## **3.  Diagrama de Classes e DER**
+## **3.  Por que esse nome e tema?**
+Nosso projeto é feito totalmente a fins de estudo e não visamos monetizar nosso sistema, reservando os direitos autorais para a empresa detentora dos mesmos, The Cartoon Network Inc. Escolhemos o tema Rick and Morty pois nos sentimos mais confortáveis em fazer algo desafiador com algo que gostamos.
+
+## **4.  Diagrama de Classes e DER**
 ### *   Diagrama de Classe<br />
 ![diagramaDeClasse](https://github.com/Brudigu/AC2/blob/main/Diagramas/Classes.jpeg?raw=true)
 ### *  DER <br />
@@ -18,8 +21,8 @@ Desenvolvimento da AC2 da matéria Linguagens de Programação mesclado com Banc
 ### *  Caso de Uso
 ![casoDeUso](https://github.com/Brudigu/AC2/blob/main/Diagramas/Caso%20de%20uso.jpeg?raw=true)
 
-## **4. Telas do projeto**
+## **5. Telas do projeto**
 ![telas](https://github.com/Brudigu/AC2/blob/main/Imagens/Webp.net-gifmaker.gif?raw=true)
 
-## **5. Agradecimentos**
+## **6. Agradecimentos**
 Todos nós do projeto agradecemos aos professores Márcio e Ovídio, e a Facens no geral, pela oportunidade e espaço dado aos alunos para construir um sistema comercial.
